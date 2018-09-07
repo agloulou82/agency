@@ -1,0 +1,9 @@
+  {% extends "base.html.twig" %}
+
+{% block body %}
+    {{ form_start(signUpForm) }}
+        {{ form_rest(signUpForm) }}
+
+        <button type="submit" role="button">Create account</button>
+    {{ form_end(signUpForm) }}
+{% endblock %}

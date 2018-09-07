@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}List reservation{% endblock %}
+
+{% block body %}
+
+            <table>
+                <tr>
+                    <td>Title</td>
+                    <td>Create date</td>
+                </tr>
+                {% for reservation in AllReservations %}
+                    <tr>
+                        <td> {{ reservation.offer.title }}</td>
+                        <td><p>Posted on {{ reservation.createAt|date("m/d/Y") }}</td>
+                        <td></td>
+                    </tr>
+                {% endfor %}
+            </table>
+
+{% endblock %}

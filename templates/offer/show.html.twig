@@ -1,0 +1,22 @@
+
+{% extends "base.html.twig" %}
+{% block body %}
+    <h1>offres</h1>
+
+        <div >
+
+            <div>
+                <h3>{{ offer.title }}</h3>
+                <p>{{ offer.introduction }}</p>
+                <p>{{ offer.description }}</p>
+                <p>Posted on {{ offer.createAt|date("m/d/Y") }}</p>
+            </div>
+            {{ form_start(form) }}
+            {{ form_widget(form) }}
+                <input type="submit" value="Reserve"/>
+            {{ form_end(form) }}
+        </div>
+
+        <hr>
+
+{% endblock %}

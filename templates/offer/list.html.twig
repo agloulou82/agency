@@ -1,0 +1,20 @@
+
+{% extends "base.html.twig" %}
+{% block body %}
+    <h1>Listing</h1>
+
+    {% for offer in offers %}
+        <div class="row">
+
+            <div>
+                <h3>{{ offer.title }}</h3>
+                <p>{{ offer.introduction }}</p>
+                <p>Posted on {{ offer.createAt|date("m/d/Y") }}</p>
+                <a  href="{{ path('offer_show', {'id': offer.id}) }}">See more</a>
+            </div>
+        </div>
+
+        <hr>
+    {% endfor %}
+
+{% endblock %}
