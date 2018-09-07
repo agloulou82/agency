@@ -20,7 +20,7 @@ class EresaController extends AbstractController
      * @return \Symfony\Component\HttpFoundation\Response
      * @Route("", name="index")
      */
-    public function index(EresaHandler $eresaHandler)
+    public function index(EresaHandler  $eresaHandler)
     {
         return $this->render("eresa/index.html.twig", [
             'AllReservations' => $eresaHandler->findByUser($this->getUser())
