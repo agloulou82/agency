@@ -24,7 +24,7 @@ class EresaRepository extends ServiceEntityRepository
         return $this->createQueryBuilder('e')
             ->select('count(e.id)')
             ->where('e.user = :user')
-            ->andWhere('e.isActivated = true')
+            ->andWhere('e.activated = true')
             ->setParameters([
                 'user' => $user
             ])

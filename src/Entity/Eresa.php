@@ -20,9 +20,11 @@ class Eresa
     private $id;
 
     /**
-     * @ORM\Column(type="boolean", options={"default"=false})
+     * @var boolean
+     *
+     * @ORM\Column(type="boolean", options={"default"=true})
      */
-    private $isActivated;
+    private $activated = true;
 
     /**
      * @ORM\Column(type="datetime")
@@ -35,7 +37,9 @@ class Eresa
     private $createAt;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="eresas")
+     * @ORM\ManyToOne(targetEntity="User", inversedBy="eresas")
+     * @ORM\JoinColumn(nullable=false)
+     *
      */
     private $user;
 
@@ -50,37 +54,42 @@ class Eresa
         return $this->id;
     }
 
-
-    public function getIsActivated(): ?bool
+    /**
+     * @return bool
+     */
+    public function getActivated(): bool
     {
-        return $this->isActivated;
+        return $this->activated;
     }
 
-    public function setIsActivated(bool $isActivated): self
+    /**
+     * @param bool $activated
+     * @return self
+     */
+    public function setActivated(bool $activated): self
     {
-        $this->isActivated = $isActivated;
-
+        $this->activated = $activated;
         return $this;
     }
 
-    public function getExpiresAt(): ?\DateTimeInterface
+    public function getExpiresAt(): ?\DateTime
     {
         return $this->expiresAt;
     }
 
-    public function setExpiresAt(\DateTimeInterface $expiresAt): self
+    public function setExpiresAt(\DateTime $expiresAt): self
     {
         $this->expiresAt = $expiresAt;
 
         return $this;
     }
 
-    public function getCreateAt(): ?\DateTimeInterface
+    public function getCreateAt(): ?\DateTime
     {
         return $this->createAt;
     }
 
-    public function setCreateAt(\DateTimeInterface $createAt): self
+    public function setCreateAt(\DateTime $createAt): self
     {
         $this->createAt = $createAt;
 
@@ -102,24 +111,24 @@ class Eresa
         $this->expiresAt = new \DateTime('+'.self::OFFER_LIFE_LIMIT.' day');
     }
 
-    public function getUser(): ?User
+    public function getUser(): User
     {
         return $this->user;
     }
 
-    public function setUser(?User $user): self
+    public function setUser(User $user): self
     {
         $this->user = $user;
 
         return $this;
     }
 
-    public function getOffer(): ?Offer
+    public function getOffer(): Offer
     {
         return $this->offer;
     }
 
-    public function setOffer(?Offer $offer): self
+    public function setOffer(Offer $offer): self
     {
         $this->offer = $offer;
 

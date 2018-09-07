@@ -6,7 +6,6 @@ use App\Entity\Eresa;
 use App\Entity\Offer;
 use App\Form\EresaType;
 use App\Handler\EresaHandler;
-use App\Model\EresaModel;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -47,13 +46,12 @@ class OfferController extends AbstractController
             throw $this->createNotFoundException('No offer found for id' . $offer->getId());
         }
 
-        $eresa = new EresaModel();
-        $form = $this->createForm(EresaType::class, $eresa);
+        $form = $this->createForm(EresaType::class);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             if ($this->getDoctrine()->getRepository(Eresa::class)->getCountByUser($user) < Eresa::OFFER_MAX_LIMIT_BY_USER) {
-                $eresaHandler->addBy($eresa, $offer, $user);
+                $eresaHandler->addBy($offer, $user);
                 return $this->redirectToRoute('offer_list');
             }
         }
