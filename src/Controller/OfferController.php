@@ -52,7 +52,7 @@ class OfferController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             if ($this->getDoctrine()->getRepository(Eresa::class)->getCountByUser($user) < Eresa::OFFER_MAX_LIMIT_BY_USER) {
                 $eresaHandler->addBy($offer, $user);
-                return $this->redirectToRoute('offer_list');
+                return $this->redirectToRoute('offer_index');
             }
         }
 
