@@ -3,6 +3,7 @@
 namespace App\Handler;
 
 use App\Entity\User;
+use App\Model\UserModel;
 use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
@@ -31,13 +32,13 @@ class UserHandler
         $this->userPasswordEncoder = $userPasswordEncoder;
     }
 
-    public function save(array $userData)
+    public function save(UserModel $userData)
     {
         $user = (new User)
-            ->setUsername($userData['username']);
+            ->setUsername($userData->username);
 
         $user->setPassword(
-            $this->userPasswordEncoder->encodePassword($user, $userData['password'])
+            $this->userPasswordEncoder->encodePassword($user, $userData->password)
         );
 
 

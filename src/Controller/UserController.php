@@ -37,7 +37,7 @@ class UserController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $userHandler->save($user->toArray());
+            $userHandler->save($user);
         }
 
         return $this->render('user/signUp.html.twig', [

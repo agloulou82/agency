@@ -2,22 +2,18 @@
 
 namespace App\Model;
 
+use Symfony\Component\Validator\Constraints as Assert;
+
 class UserModel
 {
     /**
-     * @var string
-     *
+     * @var username
+     * @Assert\NotNull(message ="Veuilliez renseigner votre nom d'utilisateur !!")
      */
     public $username;
 
-    /** @var string */
+    /**
+     * @Assert\NotNull(message ="Veuilliez renseigner votre mot de passe !!")
+     */
     public $password;
-
-    public function toArray()
-    {
-        return [
-            'username' => $this->username,
-            'password' => $this->password,
-        ];
-    }
 }

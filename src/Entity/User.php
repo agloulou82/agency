@@ -46,7 +46,8 @@ class User implements UserInterface
     private $salt;
 
     /**
-     * @var iterable
+     * @var array
+     * @ORM\Column(type="json")
      */
     private $roles = ['ROLE_USER'];
 
@@ -55,6 +56,9 @@ class User implements UserInterface
      */
     private $eresas;
 
+    /**
+     * User constructor.
+     */
     public function __construct()
     {
         $this->eresas = new ArrayCollection();
@@ -91,6 +95,7 @@ class User implements UserInterface
     public function setUsername(string $username): User
     {
         $this->username = $username;
+
         return $this;
     }
 
@@ -109,6 +114,7 @@ class User implements UserInterface
     public function setPassword(string $password): User
     {
         $this->password = $password;
+
         return $this;
     }
 
@@ -127,13 +133,15 @@ class User implements UserInterface
     public function setSalt(string $salt): User
     {
         $this->salt = $salt;
+
         return $this;
     }
 
+
     /**
-     * @return iterable
+     * @return array
      */
-    public function getRoles(): iterable
+    public function getRoles(): array
     {
         return $this->roles;
     }
@@ -142,9 +150,10 @@ class User implements UserInterface
      * @param iterable $roles
      * @return User
      */
-    public function setRoles(iterable $roles): User
+    public function setRoles(array $roles): User
     {
         $this->roles = $roles;
+
         return $this;
     }
 
