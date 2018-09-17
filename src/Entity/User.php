@@ -47,9 +47,8 @@ class User implements UserInterface
 
     /**
      * @var array
-     * @ORM\Column(type="json")
      */
-    private $roles = ['ROLE_USER'];
+    private $roles = ['ROLE_ADMIN'];
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Eresa", mappedBy="user")

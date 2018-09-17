@@ -11,6 +11,8 @@ class UserData extends Fixture
 {
     private $encoder;
 
+    public const USER_REFERENCE = "admin";
+
     public function __construct(UserPasswordEncoderInterface $passwordEncoder)
     {
         $this->encoder = $passwordEncoder;
@@ -18,17 +20,36 @@ class UserData extends Fixture
 
     public function load(ObjectManager $manager): void
     {
-        $user = new User();
-        $user->setUsername('admin');
-        $user->setPassword($this->encoder->encodePassword($user, 'pass_1234'));
-        $manager->persist($user);
+        foreach ($this->getUsers() as [$username, $password]) {
+            $user = new User();
+            $user->setUsername($username);
+            $user->setPassword($this->encoder->encodePassword($user, $password));
+            $manager->persist($user);
 
-        $admin = new User();
-        $admin->setUsername('anis');
-        $admin->setRoles(['ROLE_ADMIN']);
-        $admin->setPassword($this->encoder->encodePassword($admin, 'pass_1234'));
+            $this->addReference($username, $user);
+        }
 
-        $manager->persist($admin);
         $manager->flush();
+
+
+    }
+
+    /**
+     * @return array
+     */
+    public function getUsers(): array
+    {
+        return
+            [
+                [
+                    'admin',
+                    'pass-1234',
+                ],
+                [
+                    'anis',
+                    'pass-1234',
+                ],
+
+            ];
     }
 }

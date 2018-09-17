@@ -11,11 +11,6 @@ class UserHandler
 {
 
     /**
-     * @var EventDispatcherInterface
-     */
-    private $eventDispatcher;
-
-    /**
      * @var ObjectManager
      */
     private $objectManager;
@@ -46,8 +41,4 @@ class UserHandler
         $this->objectManager->flush();
     }
 
-    public function findAll(): array
-    {
-        return $this->objectManager->getRepository('App:User')->findAll();
-    }
 }
