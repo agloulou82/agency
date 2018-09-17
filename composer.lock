@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "911f5ad54037ef48520147115ceaf503",
+    "content-hash": "97f5d17efad2099ebe13eafa9fa77295",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -1290,6 +1290,56 @@
                 "reflection"
             ],
             "time": "2018-06-14T14:45:07+00:00"
+        },
+        {
+            "name": "easycorp/easy-log-handler",
+            "version": "v1.0.7",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/EasyCorp/easy-log-handler.git",
+                "reference": "5f95717248d20684f88cfb878d8bf3d78aadcbba"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/EasyCorp/easy-log-handler/zipball/5f95717248d20684f88cfb878d8bf3d78aadcbba",
+                "reference": "5f95717248d20684f88cfb878d8bf3d78aadcbba",
+                "shasum": ""
+            },
+            "require": {
+                "monolog/monolog": "~1.6",
+                "php": ">=5.3.0",
+                "symfony/yaml": "~2.3|~3.0|~4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "EasyCorp\\EasyLog\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Javier Eguiluz",
+                    "email": "javiereguiluz@gmail.com"
+                },
+                {
+                    "name": "Project Contributors",
+                    "homepage": "https://github.com/EasyCorp/easy-log-handler"
+                }
+            ],
+            "description": "A handler for Monolog that optimizes log messages to be processed by humans instead of software. Improve your productivity with logs that are easy to understand.",
+            "homepage": "https://github.com/EasyCorp/easy-log-handler",
+            "keywords": [
+                "easy",
+                "log",
+                "logging",
+                "monolog",
+                "productivity"
+            ],
+            "time": "2018-07-27T15:41:37+00:00"
         },
         {
             "name": "easycorp/easyadmin-bundle",
@@ -5444,56 +5494,6 @@
         }
     ],
     "packages-dev": [
-        {
-            "name": "easycorp/easy-log-handler",
-            "version": "v1.0.7",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/EasyCorp/easy-log-handler.git",
-                "reference": "5f95717248d20684f88cfb878d8bf3d78aadcbba"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/EasyCorp/easy-log-handler/zipball/5f95717248d20684f88cfb878d8bf3d78aadcbba",
-                "reference": "5f95717248d20684f88cfb878d8bf3d78aadcbba",
-                "shasum": ""
-            },
-            "require": {
-                "monolog/monolog": "~1.6",
-                "php": ">=5.3.0",
-                "symfony/yaml": "~2.3|~3.0|~4.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "EasyCorp\\EasyLog\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Javier Eguiluz",
-                    "email": "javiereguiluz@gmail.com"
-                },
-                {
-                    "name": "Project Contributors",
-                    "homepage": "https://github.com/EasyCorp/easy-log-handler"
-                }
-            ],
-            "description": "A handler for Monolog that optimizes log messages to be processed by humans instead of software. Improve your productivity with logs that are easy to understand.",
-            "homepage": "https://github.com/EasyCorp/easy-log-handler",
-            "keywords": [
-                "easy",
-                "log",
-                "logging",
-                "monolog",
-                "productivity"
-            ],
-            "time": "2018-07-27T15:41:37+00:00"
-        },
         {
             "name": "nikic/php-parser",
             "version": "v4.0.3",

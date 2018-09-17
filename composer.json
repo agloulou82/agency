@@ -6,6 +6,7 @@
         "ext-ctype": "*",
         "ext-iconv": "*",
         "doctrine/doctrine-fixtures-bundle": "^3.0",
+        "easycorp/easy-log-handler": "^1.0",
         "easycorp/easyadmin-bundle": "^1.17",
         "sensio/framework-extra-bundle": "^5.1",
         "symfony/asset": "*",
@@ -30,6 +31,7 @@
         "symfony/debug-pack": "*",
         "symfony/dotenv": "*",
         "symfony/maker-bundle": "^1.0",
+        "symfony/phpunit-bridge": "*",
         "symfony/test-pack": "*",
         "symfony/web-server-bundle": "*"
     },
