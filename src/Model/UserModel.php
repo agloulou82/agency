@@ -9,6 +9,7 @@ class UserModel
     /**
      * @var username
      * @Assert\NotNull(message ="Veuilliez renseigner votre nom d'utilisateur !!")
+     * @Assert\Length(max="10", maxMessage="Max de caractère  10")
      */
     public $username;
 

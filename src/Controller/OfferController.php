@@ -23,8 +23,10 @@ class OfferController extends AbstractController
      */
     public function index()
     {
+
+        $offers = $this->getDoctrine()->getRepository(Offer::class)->findAll();
         return $this->render('offer/list.html.twig', [
-            'offers' => $this->getDoctrine()->getRepository(Offer::class)->findAll(),
+            'offers' => $offers,
         ]);
     }
 
@@ -41,6 +43,7 @@ class OfferController extends AbstractController
     public function show(Offer $offer, EresaHandler $eresaHandler, Request $request)
     {
         $user = $this->getUser();
+
 
         if (null === $offer) {
             throw $this->createNotFoundException('No offer found for id' . $offer->getId());

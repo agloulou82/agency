@@ -8,7 +8,8 @@ use Doctrine\Common\Persistence\ObjectManager;
 
 class OfferData extends Fixture
 {
-    public const OFFER_REFERENCE ="Offer 1";
+    public const OFFER_REFERENCE = "Offer 1";
+
     /**
      * @param ObjectManager $manager
      */
@@ -31,7 +32,7 @@ class OfferData extends Fixture
 
             $this->addReference($title, $offer);
 
-       };
+        };
 
 
         $manager->flush();
@@ -44,10 +45,9 @@ class OfferData extends Fixture
     {
 
         $offers = [];
-        for ($i = 1; $i <10; $i++)
-        {
+        for ($i = 1; $i <= 10; $i++) {
             $offers [] = [
-                'Offer '.$i,
+                'Offer ' . $i,
                 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ...',
                 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in.',
                 new \DateTime("2019-10-10"),
